@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
   get '/'=>'home#index'
 
-  resource :contacts, only: [:new, :create] #REST
+  get 'terms' => 'pages#terms'
+  get 'about' => 'pages#about'
+
+  
+  #resource :contacts, only: [:new, :create] #REST
+
+  #get 'contacts' => 'contacts#new'
+  #resource :contacts, only: [:create]
+
+  resource :contacts, only: [:new, :create], path_names:{:new => ''}
+
   resources :articles #REST
 
   # The priority is based upon order of creation: first created -> highest priority.

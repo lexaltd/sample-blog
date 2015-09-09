@@ -1,0 +1,21 @@
+<h1>Index Articles</h1>
+<%= link_to 'My Blog', controller: 'articles' %>
+<p><%= link_to 'New article', new_article_path %> </p> 
+
+<% @articles.each do |article| %>
+	 <h2><%= article.title %></h2>
+
+	 <p>
+	 <%= article.text %>
+	 </p>
+
+	 <p>	   
+	   <%= link_to 'Snow', article_path(article) %> |
+	   <%= link_to 'Edit', edit_article_path(article) %> |
+	   <%= link_to 'Delete', article_path(article),
+                             method: :delete,
+                             data: { confirm: 'Are you sure?' } %>
+	 </p>
+	 <hr/>	 
+
+<% end %>
