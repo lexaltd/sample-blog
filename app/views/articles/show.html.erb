@@ -3,6 +3,15 @@
 
 <p><%= link_to 'Back', articles_path %></p>
 
+
+<% @article.comments.each do |comment| %>
+	 <h2><%= comment.commenter %></h2>	 
+	 <p><%= comment.body %></p>
+	 
+	 <hr/>	 
+<% end %>
+
+
 <h2>Add a comment:</h2>
 <%= form_for([@article, @article.comments.build]) do |f| %>
   <p>
