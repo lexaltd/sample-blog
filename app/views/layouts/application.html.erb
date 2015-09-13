@@ -8,8 +8,11 @@
 </head>
 <body>
 
- <a href="/users/sign_in">Sing in</a> |
- <a href="/users/sign_out"  data-method="delete">Sing out</a>
+ <% if user_signed_in? %>
+	Hello, <%= current_user.email %> | <%= link_to 'Sing out', destroy_user_session_path, method: :delete %>		
+ <% else %>
+	<%= link_to 'Sing in', new_user_session_path %>	 
+ <% end %>
 
  <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>
