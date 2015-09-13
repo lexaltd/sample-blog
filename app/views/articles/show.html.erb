@@ -3,9 +3,10 @@
 
 <p><%= link_to 'Back', articles_path %></p>
 
+<h2>Comments</h2>
 
 <% @article.comments.each do |comment| %>
-	 <h2><%= comment.commenter %></h2>	 
+	 <h2><i><%= comment.commenter %></i></h2>	 
 	 <p><%= comment.body %></p>
 	 
 	 <hr/>	 

@@ -1,4 +1,8 @@
-class ArticlesController < ApplicationController
+class ArticlesController < ApplicationController   
+   before_filter :authenticate_user!
+   #before_action :authenticate_user!
+   #before_action :authenticate_member!
+
    def index
     @articles = Article.all
    end
