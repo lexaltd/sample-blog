@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController   
    before_filter :authenticate_user!, :only => [:new ,:create]
+   #before_filter :authenticate_user!, except => [:show, :index]
    #before_action :authenticate_user!
    #before_action :authenticate_member!
 
@@ -18,6 +19,7 @@ class ArticlesController < ApplicationController
    def create
     #render plain: params[:article].inspect
       @article = Article.new(article_params)
+      @article.author = current_user.username
 
       if @article.save
         redirect_to @article
@@ -51,5 +53,7 @@ class ArticlesController < ApplicationController
 
     def article_params
       params.require(:article).permit(:title, :text)
+      # :article - Имя хеша, :title, :text - ключи хеша
+      # Написано верни хеш по имени :article, и значения с ключами :title, :text ,остальное не надо
     end
 end

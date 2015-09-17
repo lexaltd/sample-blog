@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   # Если это devise_controller? то будет выполнен before_filter :authenticate_user!,
   #(где у нас работает devise) и configure_permitted_parameters
-  # Можно before_action(будет использоваться перед каждым action)
+  # В Rails 4 before_filter заменили на before_action 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   #protected
