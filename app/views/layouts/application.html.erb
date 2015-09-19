@@ -45,6 +45,7 @@
 			      	 <% if user_signed_in? %>
 			      	    <% welcome_username = 'Hi, ' + current_user.username+'!' %>
 			      	    <li><div class="hidden-xs" style="margin-top: 15px"><%= welcome_username %></div></li>
+			      	    <li><div class="hidden-xs" style="margin-top: 15px"><%= t('hello') %></div></li>
 					    
 					    <li><%= link_to 'Sing out', destroy_user_session_path, method: :delete %></li>		
 					 <% else %>

@@ -20,4 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: "%{welcome_username} Hello world"
+
+  contacts:
+    contact_us: "New Contacts!"  
